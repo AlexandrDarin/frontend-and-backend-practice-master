@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <style>
+        /* Дополнительные стили для товаров */
+        .products-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--dark-card);
+            border-radius: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+
+        .products-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        .product-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: var(--dark-card);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .price-highlight {
+            color: var(--neon-red);
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--neon-red);
+            font-size: 1.4rem;
+        }
+
+        .discount-badge {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 0, 255, 0.2) 100%);
+            color: var(--neon-red);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--neon-red);
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            text-shadow: 0 0 10px var(--neon-red);
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buy-button {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(255, 0, 0, 0.1) 100%);
+            color: var(--text-primary);
+            border: 1px solid var(--neon-pink);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+            width: 100%;
+        }
+
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.2) 0%, rgba(255, 0, 0, 0.2) 100%);
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .rating {
+            color: var(--neon-blue);
+            margin: 10px 0;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--dark-card);
+            color: var(--text-primary);
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            background: rgba(255, 0, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <h1>🛒 Каталог товаров</h1>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">🏠 Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">📰 Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">💻 Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">🛒 Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">📞 Контакты</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <section class="products-header">
+                <h2 class="section-title">🌟 Наши эксклюзивные товары</h2>
+                <p class="products-subtitle">Только лучшее для наших клиентов с гарантией качества</p>
+            </section>
+
+            <section class="product-features">
+                <article class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h4>Быстрая доставка</h4>
+                    <p class="feature-text">Доставим за 24 часа по всей России</p>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h4>Гарантия качества</h4>
+                    <p class="feature-text">Гарантия 2 года на все товары</p>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-icon">💳</div>
+                    <h4>Удобная оплата</h4>
+                    <p class="feature-text">Любые способы оплаты</p>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <h4>Скидки и акции</h4>
+                    <p class="feature-text">Регулярные специальные предложения</p>
+                </article>
+            </section>
+
+            <div class="products-filter">
+                <button class="filter-btn active">Все товары</button>
+                <button class="filter-btn">Популярные</button>
+                <button class="filter-btn">Со скидкой</button>
+                <button class="filter-btn">Новинки</button>
+            </div>
+            
+            <section class="products-grid">
+                <article class="product-card">
+                    <div class="discount-badge">🔥 Хит продаж</div>
+                    <img src="../images/Товар 4.jpg" alt="Товар 4" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">💀 Загонит в депрессию</h3>
+                        <p class="product-description">Эксклюзивный продукт для тех, кто ценит глубокие эмоциональные переживания</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="price-highlight">1 руб.</div>
+                        <button class="buy-button" onclick="addToCart('Загонит в депрессию', 1)">🛒 В корзину</button>
+                    </div>
+                </article>
+                
+                <article class="product-card">
+                    <div class="discount-badge">🎯 Новинка</div>
+                    <img src="../images/Товар 3.jpg" alt="Товар 3" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">✨ Поможет выйти из депрессии</h3>
+                        <p class="product-description">Инновационное решение для возвращения к полноценной жизни</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
+                        <div class="price-highlight">125 000 руб.</div>
+                        <button class="buy-button" onclick="addToCart('Поможет выйти из депрессии', 125000)">🛒 В корзину</button>
+                    </div>
+                </article>
+                
+                <article class="product-card">
+                    <div class="discount-badge">🌟 Эксклюзив</div>
+                    <img src="../images/Товар 2.jpg" alt="Товар 2" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">🐵 Обезьяна необычная</h3>
+                        <p class="product-description">Редкий коллекционный экземпляр с уникальными способностями</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+                        <div class="price-highlight">232 000 руб.</div>
+                        <button class="buy-button" onclick="addToCart('Обезьяна необычная', 232000)">🛒 В корзину</button>
+                    </div>
+                </article>
+                
+                <article class="product-card">
+                    <img src="../images/Товар 1.jpg" alt="Товар 1" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">🐒 Обезьяна обычная</h3>
+                        <p class="product-description">Классический вариант для повседневного использования</p>
+                        <div class="rating">⭐⭐⭐⭐ (4.2)</div>
+                        <div class="price-highlight">176 500 руб.</div>
+                        <button class="buy-button" onclick="addToCart('Обезьяна обычная', 176500)">🛒 В корзину</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="discount-badge">💫 Лимитированная серия</div>
+                    <img src="../images/Товар 4.jpg" alt="Товар 5" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">🎭 Эмоциональные качели</h3>
+                        <p class="product-description">От депрессии к эйфории за считанные минуты</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (4.7)</div>
+                        <div class="price-highlight">89 900 руб.</div>
+                        <button class="buy-button" onclick="addToCart('Эмоциональные качели', 89900)">🛒 В корзину</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="discount-badge">🔮 Магический артефакт</div>
+                    <img src="../images/Товар 3.jpg" alt="Товар 6" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">🌈 Радужный трансформер</h3>
+                        <p class="product-description">Меняет цвета и настроение в зависимости от обстановки</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="price-highlight">157 300 руб.</div>
+                        <button class="buy-button" onclick="addToCart('Радужный трансформер', 157300)">🛒 В корзину</button>
+                    </div>
+                </article>
+            </section>
+
+            <section class="special-offer" style="background: var(--dark-card); padding: 40px; border-radius: 15px; text-align: center; margin-top: 50px; border: 1px solid var(--neon-red); box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);">
+                <h3 style="color: var(--neon-red); margin-bottom: 20px; text-shadow: 0 0 10px var(--neon-red);">🎉 Специальное предложение!</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">При покупке двух любых товаров - третий в подарок!</p>
+                <button class="buy-button" style="background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 0, 255, 0.2) 100%); border-color: var(--neon-red);">🔥 Получить предложение</button>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2025 🚀 Семестровая работа. Все права защищены.</p>
+        </footer>
+
+        <script>
+            // Функция добавления в корзину
+            function addToCart(productName, price) {
+                alert(`🎉 Товар "${productName}" добавлен в корзину!\n💰 Цена: ${price.toLocaleString()} руб.`);
+                
+                // В реальном приложении здесь была бы логика добавления в корзину
+                console.log(`Добавлен товар: ${productName}, Цена: ${price}`);
+            }
+
+            // Фильтрация товаров
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Убираем активный класс у всех кнопок
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+                    
+                    // Здесь могла бы быть логика фильтрации товаров
+                    console.log(`Выбран фильтр: ${this.textContent}`);
+                });
+            });
+
+            // Анимация появления товаров
+            document.addEventListener('DOMContentLoaded', function() {
+                const productCards = document.querySelectorAll('.product-card');
+                productCards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
