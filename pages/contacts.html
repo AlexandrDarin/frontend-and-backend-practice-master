@@ -16,30 +16,29 @@
             border: none;
             border-radius: 15px;
             padding: 0;
-            box-shadow: 0 0 50px rgba(255, 0, 255, 0.3);
+            box-shadow: var(--shadow-xl);
             animation: slideIn 0.3s ease;
             max-width: 500px;
             width: 90vw;
             max-height: 90vh;
             overflow-y: auto;
-            background: var(--dark-card);
-            border: 1px solid #333;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
         }
 
         .modal-header {
-            background: linear-gradient(135deg, var(--dark-header) 0%, #2a2a2a 100%);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
             color: white;
             padding: 1.5rem;
             border-radius: 15px 15px 0 0;
             margin: 0;
-            border-bottom: 2px solid var(--neon-pink);
+            border-bottom: 2px solid var(--color-primary);
         }
 
         .modal-header h2 {
             margin: 0;
-            color: var(--neon-pink);
+            color: var(--color-text-light);
             font-size: 1.5rem;
-            text-shadow: 0 0 10px var(--neon-pink);
         }
 
         .modal-content {
@@ -55,8 +54,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue);
+            color: var(--color-primary);
         }
 
         .form-group input,
@@ -64,21 +62,21 @@
         .form-group textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid #333;
+            border: 1px solid var(--color-border);
             border-radius: 6px;
             font-size: 1rem;
             transition: all 0.3s ease;
             box-sizing: border-box;
-            background: var(--dark-bg);
-            color: var(--text-primary);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .form-group textarea {
@@ -93,42 +91,8 @@
             margin-top: 2rem;
         }
 
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%);
-            color: var(--text-primary);
-            border: 1px solid var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            border: 1px solid #333;
-        }
-
-        .btn-secondary:hover {
-            background: #2a2a2a;
-            border-color: var(--neon-red);
-        }
-
         .required {
-            color: var(--neon-red);
-            text-shadow: 0 0 10px var(--neon-red);
+            color: var(--color-error);
         }
 
         #contactModal {
@@ -161,10 +125,6 @@
             .modal-actions {
                 grid-template-columns: 1fr;
             }
-            
-            .btn {
-                width: 100%;
-            }
         }
 
         .contact-grid {
@@ -175,9 +135,9 @@
         }
 
         .main-contact-button {
-            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(255, 0, 0, 0.1) 100%);
-            color: var(--text-primary);
-            border: 1px solid var(--neon-pink);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-text-light);
+            border: none;
             padding: 20px 40px;
             border-radius: 25px;
             font-size: 1.2rem;
@@ -186,29 +146,29 @@
             transition: all 0.3s ease;
             margin: 40px auto;
             display: block;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+            box-shadow: var(--shadow-lg);
         }
 
         .main-contact-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
-            background: linear-gradient(135deg, rgba(255, 0, 255, 0.2) 0%, rgba(255, 0, 0, 0.2) 100%);
+            box-shadow: var(--shadow-xl);
         }
     </style>
 </head>
 <body>
     <div class="page-container">
         <header class="header">
-            <h1>📞 Контакты</h1>
+            <h1 class="header__title">📞 Контакты</h1>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
         </header>
         
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">🏠 Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">📰 Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">💻 Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">🛒 Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">📞 Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="../index.html">🏠 Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="news.html">📰 Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="practices.html">💻 Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="goods.html">🛒 Товары</a></li>
+                <li class="nav__item"><a class="nav__link nav__link--active" href="contacts.html">📞 Контакты</a></li>
             </ul>
         </nav>
         
@@ -216,27 +176,36 @@
             <h2 class="section-title">📞 Свяжитесь с нами</h2>
             
             <div class="contact-grid">
-                <div class="contact-item">
+                <div class="contact-item card card--highlight">
                     <h3 class="contact-title">📧 Электронная почта</h3>
                     <p class="contact-info">darins06@mail.ru</p>
+                    <button class="btn btn--primary contact-button" onclick="sendEmail()">
+                        📨 Написать письмо
+                    </button>
                 </div>
                 
-                <div class="contact-item">
+                <div class="contact-item card card--success">
                     <h3 class="contact-title">🏢 Адрес</h3>
                     <p class="contact-info">г. Москва, ул. Примерная, д. 123, офис 456</p>
+                    <button class="btn btn--primary contact-button" onclick="showOnMap()">
+                        🗺️ Показать на карте
+                    </button>
                 </div>
                 
-                <div class="contact-item">
+                <div class="contact-item card card--warning">
                     <h3 class="contact-title">📞 Телефон</h3>
                     <p class="contact-info">+7 (999) 123-45-67</p>
-                    <button class="contact-button" onclick="alert('📞 Позвоните нам по номеру: +7 (999) 123-45-67')">
+                    <button class="btn btn--primary contact-button" onclick="makeCall()">
                         📲 Позвонить
                     </button>
                 </div>
                 
-                <div class="contact-item">
+                <div class="contact-item card">
                     <h3 class="contact-title">🕒 Время работы</h3>
                     <p class="contact-info">Пн-Сб: 9:00-18:00<br>Вс: выходной</p>
+                    <button class="btn btn--primary contact-button" onclick="checkAvailability()">
+                        ⏰ Проверить доступность
+                    </button>
                 </div>
             </div>
 
@@ -244,10 +213,35 @@
             <button class="main-contact-button" onclick="contactModal.showModal()">
                 ✉️ Связаться с нами
             </button>
+
+            <!-- Форма обратной связи -->
+            <section class="card card--highlight mt-xl">
+                <h2 class="section-title mb-lg">📋 Быстрая связь</h2>
+                <form class="form" id="quickContactForm">
+                    <div class="form__group">
+                        <label class="form__label" for="quickName">👤 Имя</label>
+                        <input type="text" id="quickName" class="form__input" placeholder="Введите ваше имя" required>
+                    </div>
+
+                    <div class="form__group">
+                        <label class="form__label" for="quickEmail">📧 Email</label>
+                        <input type="email" id="quickEmail" class="form__input" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form__group">
+                        <label class="form__label" for="quickMessage">💬 Сообщение</label>
+                        <textarea id="quickMessage" class="form__input" rows="4" placeholder="Ваше сообщение..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn--primary btn--large">
+                        📨 Отправить сообщение
+                    </button>
+                </form>
+            </section>
         </main>
         
         <footer class="footer">
-            <p>&copy; 2025 🚀 Семестровая работа. Все права защищены.</p>
+            <p class="footer__text">&copy; 2025 🚀 Семестровая работа. Все права защищены.</p>
         </footer>
 
         <!-- Модальное окно для формы обратной связи -->
@@ -292,14 +286,79 @@
                     </div>
 
                     <div class="modal-actions">
-                        <button type="submit" class="btn btn-secondary">❌ Отмена</button>
-                        <button type="button" class="btn btn-primary" onclick="submitForm()">✅ Отправить</button>
+                        <button type="button" class="btn btn--secondary" onclick="contactModal.close()">❌ Отмена</button>
+                        <button type="button" class="btn btn--primary" onclick="submitForm()">✅ Отправить</button>
                     </div>
                 </form>
             </div>
         </dialog>
 
         <script>
+            // Универсальная система управления темой
+            class ThemeManager {
+                constructor() {
+                    this.theme = localStorage.getItem('theme') || 'light';
+                    this.init();
+                }
+
+                init() {
+                    this.applyTheme(this.theme);
+                    this.setupThemeToggle();
+                }
+
+                applyTheme(theme) {
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('theme', theme);
+                    this.theme = theme;
+                    this.updateThemeButton();
+                }
+
+                setupThemeToggle() {
+                    const toggleBtn = document.getElementById('themeToggle');
+                    if (toggleBtn) {
+                        toggleBtn.addEventListener('click', () => {
+                            const newTheme = this.theme === 'dark' ? 'light' : 'dark';
+                            this.applyTheme(newTheme);
+                        });
+                    }
+                }
+
+                updateThemeButton() {
+                    const toggleBtn = document.getElementById('themeToggle');
+                    if (toggleBtn) {
+                        toggleBtn.textContent = this.theme === 'dark' ? '☀️' : '🌙';
+                        toggleBtn.setAttribute('aria-label', 
+                            this.theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему'
+                        );
+                    }
+                }
+            }
+
+            // Функции для кнопок контактов
+            function sendEmail() {
+                showNotification('📧 Открываю почтовый клиент для darins06@mail.ru...');
+            }
+
+            function showOnMap() {
+                showNotification('🗺️ Показываю местоположение на карте:\nг. Москва, ул. Примерная, д. 123, офис 456');
+            }
+
+            function makeCall() {
+                showNotification('📞 Звоню по номеру: +7 (999) 123-45-67');
+            }
+
+            function checkAvailability() {
+                const now = new Date();
+                const hour = now.getHours();
+                const isAvailable = hour >= 9 && hour < 18 && now.getDay() !== 0;
+                
+                if (isAvailable) {
+                    showNotification('✅ Сейчас рабочее время! Мы доступны для связи.');
+                } else {
+                    showNotification('⏰ Сейчас нерабочее время. Мы свяжемся с вами завтра.');
+                }
+            }
+
             // Функция для отправки формы
             function submitForm() {
                 const form = document.getElementById('feedbackForm');
@@ -324,7 +383,7 @@
                 console.log('Данные формы:', data);
                 
                 // Показываем уведомление об успешной отправке
-                alert('✅ Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+                showNotification('✅ Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
                 
                 // Закрываем модальное окно
                 contactModal.close();
@@ -333,18 +392,94 @@
                 form.reset();
             }
 
-            // Закрытие модального окна по клику на фон
-            document.getElementById('contactModal').addEventListener('click', function(event) {
-                if (event.target === this) {
-                    this.close();
-                }
-            });
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--color-primary);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    box-shadow: var(--shadow-lg);
+                    z-index: 1000;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    max-width: 300px;
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
 
-            // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
-            document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
-                if (event.key === 'Enter' && event.target.type !== 'textarea') {
-                    event.preventDefault();
+                // Анимация появления
+                setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+                
+                // Автоматическое скрытие
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+
+            // Инициализация при загрузке страницы
+            document.addEventListener('DOMContentLoaded', () => {
+                new ThemeManager();
+
+                // Анимация появления контактов
+                const contactItems = document.querySelectorAll('.contact-item');
+                contactItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.5s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, index * 100);
+                });
+
+                // Обработка быстрой формы
+                const quickForm = document.getElementById('quickContactForm');
+                if (quickForm) {
+                    quickForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        if (!this.checkValidity()) {
+                            this.reportValidity();
+                            return;
+                        }
+
+                        const submitBtn = this.querySelector('button[type="submit"]');
+                        const originalText = submitBtn.textContent;
+                        submitBtn.textContent = '⏳ Отправка...';
+                        submitBtn.disabled = true;
+
+                        setTimeout(() => {
+                            submitBtn.textContent = '✅ Отправлено!';
+                            
+                            setTimeout(() => {
+                                submitBtn.textContent = originalText;
+                                submitBtn.disabled = false;
+                                this.reset();
+                                showNotification('✅ Сообщение успешно отправлено!');
+                            }, 2000);
+                        }, 1500);
+                    });
                 }
+
+                // Закрытие модального окна по клику на фон
+                document.getElementById('contactModal').addEventListener('click', function(event) {
+                    if (event.target === this) {
+                        this.close();
+                    }
+                });
+
+                // Обработка отправки формы через Enter
+                document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                        event.preventDefault();
+                    }
+                });
             });
         </script>
     </div>
